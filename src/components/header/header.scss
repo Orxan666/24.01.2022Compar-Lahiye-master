@@ -1,0 +1,228 @@
+@use "../../css/" as *;
+
+.resMenu {
+    display: none;
+    @include responsive(576px) {
+        color: black;
+        display: block;
+        z-index: 100;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    i {
+        color: rgb(255, 255, 255);
+    }
+
+    .res-nav {
+        .drop-nav {
+            font-size: 25px;
+            margin-top: 30px;
+
+            a {
+                font-family: $font-family;
+                color: $dark;
+                font-weight: bold;
+                &.active {
+                    display: block;
+                }
+            }
+            &.drop-contact {
+                border-bottom: 2px solid $color-2;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+            }
+            .dropped-menu {
+         
+                display: none;
+                &.dropped-active{
+                    display: block;
+                }
+                li {
+                    margin-top: 30px;
+                    font-size: 18px;
+                    line-height: 30px;
+                }
+            }
+        }
+
+        .header-bottom {
+            @include responsive(576px) {
+                display: block;
+            }
+        }
+    }
+}
+
+// ----------------
+
+// header start
+// -------------------
+
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    color: $white;
+    transition: 0.2s ease-in-out;
+    // border-bottom: 1px solid rgb(53, 42, 42);
+    left: 0%;
+    // background-color: $dark;
+    top: 0%;
+    &.active {
+        background-color: $white;
+        a {
+            color: $black !important;
+        }
+
+        .header-right {
+            @include responsive(992px) {
+                display: none;
+            }
+            i {
+                color: $black;
+            }
+            .nav-phone {
+                i {
+                    color: $white;
+                    background: $main-color;
+                }
+            }
+        }
+        i {
+            color: $black;
+        }
+    }
+    nav.menu {
+        margin-left: 25px;
+        @include responsive(576px) {
+            display: none;
+        }
+        ul {
+            list-style: none;
+            padding: 0%;
+            margin: 0;
+
+            li {
+                a {
+                    display: block;
+                    padding: 30px 10px;
+                    color: $white;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .comparLogo {
+        @include responsive(576px) {
+            img {
+                position: absolute;
+                left: 50%;
+                top: 8px;
+                transform: translateX(-50%);
+            }
+            display: flex;
+        }
+    }
+    li {
+        &.drop-item {
+            position: relative;
+
+            &:hover {
+                .dropped-menu {
+                    opacity: 1;
+                    visibility: visible;
+                    a {
+                        color: $black;
+                    }
+                }
+            }
+            .dropped-menu {
+                position: absolute;
+                top: 100%;
+                width: 240px;
+                box-shadow: $box-shadow;
+                background-color: $white;
+                opacity: 0;
+                visibility: hidden;
+                left: 0%;
+                transition: 0.4s ease-in-out;
+                &.right {
+                    left: unset;
+                    right: 0%;
+                }
+                &.drop-search {
+                    padding: 0%;
+                    width: 400px;
+               
+                    .search-input {
+                        border-top: 2px solid $color-2;
+                        input {
+                            width: 80%;
+                        border-radius: 8mm;
+
+                            padding: 15px;
+                            margin-right: 0%;
+                            outline: none;
+                            border: none;
+                        }
+                        i {
+                            margin: 0;
+                            margin-left: 30px;
+                            color: $black;
+                            padding: 0;
+                            font-size: 20px;
+                        }
+                    }
+                }
+                a {
+                    transition: 0.2s ease-in;
+                    background-color: white;
+                    border-radius: 8mm;
+
+                    &:hover {
+                        box-shadow: $box-shadow;
+                        margin: 0 -5px;
+                    }
+                }
+            }
+        }
+    }
+    .header-right {
+        position: relative;
+        @include responsive(576px) {
+            display: none;
+        }
+        i {
+            margin-left: 15px;
+            margin-top: -20px;
+            padding: 50px 5px;
+        }
+
+        .nav-phone {
+            margin-right: 3em;
+            @include responsive(576px) {
+                display: block !important;
+            }
+            @include responsive(992px) {
+                display: none;
+            }
+            a {
+                color: white;
+                border: 1px solid grey;
+                padding: 12px;
+                border-radius: 8mm;
+                i {
+                    margin: 1px -12px 0px 10px;
+                    padding: 13px;
+                    background-color: $color-2;
+                    color: $main-color;
+                    background-color: $white;
+                    display: inline;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+// ------------------------------
